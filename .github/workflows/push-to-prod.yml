@@ -1,0 +1,20 @@
+name: BalenaCloud Deploy
+
+on:
+  push:
+    # Only run workflow for pushes to specific branches
+    branches:
+      - production
+
+jobs:
+  helium-5g:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Balena Deploy
+        uses: nebraltd/balena-cli-action@v12.44.25.1
+        if: success()
+        with:
+          balena_api_token: ${{secrets.BALENA_API_TOKEN}}
+          balena_command: "deploy nebraltd/helium-5g --logs"
