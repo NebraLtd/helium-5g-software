@@ -27,7 +27,7 @@ services:
       - 'pktfwdr:/var/pktfwd'
 
   helium-miner:
-    image: "nebraltd/hm-miner:2987e2936dab8c9f89c5fd719417c62263a1f5e7"
+    image: "nebraltd/hm-miner:cae210a5327ed6463c2ecdca1fd71f4fe7c11ce0"
     expose:
       - "4467"
       - "1680"
