@@ -3,7 +3,7 @@ version: '2'
 services:
 
   gateway-config:
-    image: nebraltd/hm-config:047ffb7
+    image: nebraltd/hm-config:047ffb7d4cb17c39fd360fee63460e5a407d5ae6
     depends_on:
       - dbus-session
     environment:
