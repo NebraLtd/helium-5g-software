@@ -3,11 +3,11 @@ version: '2'
 services:
 
   gateway-config:
-    image: nebraltd/hm-config:4b5bd115d541c299a15a802e01a54f7a3a1b3f36
+    image: nebraltd/hm-config:047ffb7
     depends_on:
       - dbus-session
     environment:
-      - FIRMWARE_VERSION=2021.09.27.0
+      - FIRMWARE_VERSION=2021.10.18.0
       - DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
       - DBUS_SESSION_BUS_ADDRESS=unix:path=/session/dbus/session_bus_socket
     privileged: true
@@ -24,13 +24,13 @@ services:
     stop_signal: SIGINT
 
   packet-forwarder:
-    image: nebraltd/hm-pktfwd:f6a2b0c11a11c260232c4c81273f52d3a945ee45
+    image: nebraltd/hm-pktfwd:5bda066
     privileged: true
     volumes:
       - pktfwdr:/var/pktfwd
 
   helium-miner:
-    image: nebraltd/hm-miner:8d487ec0df211fcc4cff997a60b41c32c744ce7c
+    image: nebraltd/hm-miner:009edb24be2c8990596a890d8de9bbafb7ba0be0
     depends_on:
       - dbus-session
     expose:
@@ -56,7 +56,7 @@ services:
     depends_on:
       - dbus-session
     environment:
-      - FIRMWARE_VERSION=2021.09.27.0
+      - FIRMWARE_VERSION=2021.10.18.0
       - DBUS_SESSION_BUS_ADDRESS=unix:path=/session/dbus/session_bus_socket
     volumes:
       - pktfwdr:/var/pktfwd
